@@ -74,7 +74,8 @@ installed elasticsearch - gpg key installed
       - $ rm elasticsearch-7.2.1-linux-x86_64.tar.gz
       - $ mv elasticsearch-7.2.1 elasticsearch
 
-Configure each node's elasticsearch.yml per instructions.
+# Configure each node's elasticsearch.yml per instructions.
+
 Log in to each node and become the elastic user:
 
 sudo su - elastic
@@ -216,7 +217,8 @@ Change the following on each node:
 to
 
 cluster.initial_master_nodes: ["master-1", "master-2", "master-3"]
-Configure the heap for each node per instructions.
+# Configure the heap for each node per instructions.
+
 Log in to each master node and become the elastic user:
 
 sudo su - elastic
@@ -245,3 +247,20 @@ to
 
 -Xms2g
 -Xmx2g1
+
+# Start Elasticsearch as a daemon on each node.
+Log in to each node and become the elastic user:
+
+sudo su - elastic
+Switch to the elasticsearch directory:
+
+cd /home/elastic/elasticsearch
+Start Elasticsearch as a daemon:
+
+./bin/elasticsearch -d -p pid
+Check the startup process:
+
+less /home/elastic/elasticsearch/logs/linux_academy.log
+Check the node configuration:
+
+curl localhost:9200/_cat/nodes?v
