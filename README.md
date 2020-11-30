@@ -86,7 +86,7 @@ Change the following line:
 #cluster.name: my-application
 to
 
-cluster.name: linux_academy
+cluster.name: roroxas_cluster
 Change the following line on master-1:
 
 #node.name: node-1
